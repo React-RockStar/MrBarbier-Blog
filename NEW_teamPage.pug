@@ -1,0 +1,359 @@
+mixin products-slider($articles, $sliderId)
+  .products-slider(id="#{sliderId}")
+    - foreach($articles as $article)
+      .product-card
+        .product-image
+          img(src="#{$article.imgSrc}")
+        .macaron
+          .int #{$article.price} €
+        .product-info
+          .product-type #{$article["product-type"]}
+          .product-name #{$article["product-name"]}
+
+mixin happy-users
+  .happy-users
+    block slides
+      - $happyUsers = [["img" => "/images/homePage/Avis-Monsieur-Barbier-1.jpg", "text" => "Au début, j'ai testé le site pour ses prix imbattables, puis je suis resté pour la qualité des lames, et la souplesse des formules, et je le recommande pour la gentillesse de l’équipe !", "city" => "Seignosse", "name" => "David S."],["img" => "/images/homePage/Avis-Monsieur-Barbier-2.jpg", "text" => "Dix années que je partage la vie de mon homme, et avec votre coffret, vous m'avez permis de lui offrir LE cadeau original, on aurait dit un gamin à qui on offre sa première petite voiture !", "city" => "Paris", "name" => "Eleonore"],["img" => "/images/homePage/Avis-Monsieur-Barbier-3.jpg", "text" => "Chez Peppino, nous sommes barbiers de père en fils, et vos produits sont dignes des plus grandes marques professionnelles, toutes nos félicitations !", "city" => "Rome", "name" => "Pietro C."]]
+      - foreach($happyUsers as $happyUser) 
+        .happy-user
+          img(src="#{$happyUser.img}")
+          .text #{$happyUser.text}
+          .name #{$happyUser.name}
+          .city.grey-subtitle #{$happyUser.city}
+
+extends layouts/NEW_layout.pug
+
+append styles
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+  link(rel="stylesheet", href="/css/new-team")
+
+block append scripts
+  script(src="https://hammerjs.github.io/dist/hammer.js")
+  script(src="/js/homePage.js")
+
+
+block content
+  - $goldenTicketData = ["movieTitle" => "Docteur ?", "releaseDate" => "11 Septembre 2019"]
+  - $ArticlesData = ["shaving" => [["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"]],"skin" => [["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"]],"beard" => [["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"],["product-name" => "better-shave 175ml", "product-type" => "Crème de rasage","price" => 9.99,"imgSrc" => "/images/newSite/products/coffret/rituel/Monsieur-Barbier-Coffret-Cadeau-Rasage-Rituel-Barbier-Produits-XL.png"]]]
+
+  .container
+    // Desktop Hero section
+    .hero
+      .hero-title
+        h2 L&apos;expert
+        h2 fran&ccedil;ais du
+        h2 male grooming
+      .hero-content
+        | Depuis 2013, cette jeune marque fran&ccedil;aise de produits de rasage, de coiffure et de soin visage pour hommes, a su conqu&eacute;rir le c&oelig;ur et la trousse de toilettes des hommes en alliant innovation, plaisir et naturalit&eacute;, dans la joie et le go&ucirc;t de l&rsquo;excellence, jusqu&rsquo;&agrave; devenir LA marque fran&ccedil;aise de r&eacute;f&eacute;rence en mati&egrave;re de male grooming.
+      .hero-image-left
+        img(src='/images/newSite/teamPage/desktop-line.png' alt='')
+      .hero-image-right
+        img(src='/images/newSite/teamPage/desktop-line.png' alt='')
+      .hero-image-top
+        img(src='/images/newSite/teamPage/mob-line_4.png' alt='')
+      .hero-image-bottom
+        img(src='/images/newSite/teamPage/mob-line_4.png' alt='')
+    // End desktop hero section
+    // Grooming section
+    .grooming-section
+      .mobile-qsn-image
+        img(src='/images/newSite/teamPage/fond-qsn-1.png' alt='')
+      .qsn-content
+        h2.qsn-title Le male grooming
+        h2.qsn-title &agrave; la fran&ccedil;aise
+        p.qsn-name
+          | Le male grooming, qu&rsquo;est-ce que c&rsquo;est ?
+        p.qsn-bold-content
+          | Le male grooming, c&rsquo;est tout ce dont un homme a besoin dans sa salle de bain, depuis le premier jet de douche, jusqu&rsquo;au dernier coup de peigne. Pour certains c&rsquo;est se faire beau, pour d&rsquo;autres c&rsquo;est du bien-&ecirc;tre, et pour d&rsquo;autres encore, c&rsquo;est une histoire de tradition. Pour nous&mldr; eh bien c&rsquo;est tout cela &agrave; la fois !
+        p.qsn-regular-content
+          | Barbier French Touch vs Barbershop US ?
+          | Assez loin de l&rsquo;ambiance tatoo-cuir-gomina des barber shops &agrave; l&rsquo;anglosaxonne, Monsieur BARBIER perp&eacute;tue l&rsquo;h&eacute;ritage du coiffeur-barbier &agrave; la fran&ccedil;aise (ou plus g&eacute;n&eacute;ralement du barbier latin) qui prend autant soin de la sant&eacute; dermo-capillaire de ses clients, que de leur style et de leur bonne humeur !
+          | Parce qu&rsquo;on le sait peu, mais en France, les ma&icirc;tres-barbiers ont longtemps &eacute;t&eacute; aussi des m&eacute;decins. Par la suite, les salons sont devenus des lieux de franche convivialit&eacute;, le temps d&rsquo;un petit caf&eacute; avant de partir au boulot.
+          | C&rsquo;est pour retrouver ces petits plaisirs du quotidien, que Monsieur BARBIER redonne vie au soin pour homme fa&ccedil;on French Touch !
+      .qsn-image
+        img(src='/images/newSite/teamPage/fond-qsn-1.png' alt='')
+      .grooming-line-image
+        img(src='/images/newSite/teamPage/ui-line-001.png' alt='')
+      .mobile-line-image
+        img(src='/images/newSite/teamPage/mob-line_4.png' alt='')
+    // End grooming section
+    // Premium  section
+    .premium-section
+      .qsn-image
+        img(src='/images/newSite/teamPage/illus-qsn-002.png' alt='')
+      .qsn-content
+        h2.qsn-title Les hommes ont aussi droit
+        h2.qsn-title &agrave; des soins premium !
+        .mobile-qsn-image
+          img(src='/images/newSite/teamPage/illus-qsn-002.png' alt='')
+        p.qsn-bold-content
+          | Pour vous &eacute;pater chaque matin, Monsieur BARBIER a fait appel au meilleur du g&eacute;nie cosm&eacute;tique fran&ccedil;ais - car oui, la France est aussi championne du monde de la formulation ! - afin de concocter une gamme compl&egrave;te de produits naturels, livr&eacute;e avec ses conseils de pro.
+        p.qsn-regular-content
+          | Du rasage au soin visage, en passant par le bichonnage de votre barbe et de vos cheveux, tous nos produits cosm&eacute;tiques sont con&ccedil;us &agrave; N&icirc;mes et &agrave; Paris, dans le plus grand respect des traditions, et en m&ecirc;me temps, &agrave; la pointe de l&rsquo;innovation !
+          br
+          br
+          |               Vous en connaissiez beaucoup vous, des soins apr&egrave;s-rasage qui font aussi (vraiment) anti-&acirc;ge ? Un beau shampoing 2-en-1 barbe &amp; cheveux ? Ou un produit pr&eacute;-rasage qui change vraiment la vie des hommes &agrave; la peau sensible ?
+          |               Du fin fond des C&eacute;vennes o&ugrave; sont fabriqu&eacute;s nos incroyables savons, au sommet du Pas-de-Calais qui confectionne nos &eacute;tuis de produits (avec Braille inclus, pour n&rsquo;exclure personne), en passant par nos voisins et amis en Belgique et en Italie, nous faisons appel aux meilleurs dans leurs sp&eacute;cialit&eacute;s, pour &ecirc;tre s&ucirc;rs d&rsquo;obtenir la meilleure qualit&eacute; : la qualit&eacute; BARBIER !
+    // End premium  section
+    // Pet section
+    .pet-section
+      .pet-image-left
+        img(src='/images/newSite/teamPage/illus-qsn-003.png' alt='')
+      .pet-image-right
+        img(src='/images/newSite/teamPage/illus-perso-livio-enveloppe.png' alt='')
+      .pet-content
+        h2.pet-title
+          | Petit secret Barbier
+        p.pet-description
+          | Pour proposer des qualit&eacute;s de formulation et d&apos;ingr&eacute;dients dignes des plus grandes marques, mais &agrave; prix plus doux, l&apos;&eacute;quipe de Monsieur BARBIER fait preuve chaque jour d&apos;ing&eacute;niosit&eacute; &agrave; toutes les &eacute;tapes : tubes plats pour l&rsquo;envoi par courrier (pour ne pas vous faire payer un colis inutile), production locale et calcul&eacute;e au millim&egrave;tre pr&egrave;s pour &eacute;viter tout g&acirc;chis, vente avec un minimum d&rsquo;interm&eacute;diaires&mldr; Chaque d&eacute;tail compte pour vous servir au mieux !
+    // End pet section
+    // Dress section
+    .dress-section
+      .qsn-content
+        h2.qsn-title Se pomponner sans s&rsquo;ab&icirc;mer,
+        h2.qsn-title c&rsquo;est pas sorcier&mldr; c&rsquo;est BARBIER !
+        .mobile-qsn-image
+          img(src='/images/newSite/teamPage/illus-qsn-003_2.png' alt='')
+        p.qsn-name
+          | Naturel oui, barbant jamais
+        p.qsn-bold-content
+          | Entre nous messieurs, vous n&rsquo;en avez pas marre des produits &agrave; l&rsquo;odeur synth&eacute;tique et &agrave; la composition douteuse ? Plut&ocirc;t envie d&rsquo;un retour au naturel, avec des formules saines qui pr&eacute;servent votre capital beaut&eacute; ?
+        p.qsn-regular-content
+          | Nous aussi, c&rsquo;est pourquoi Monsieur BARBIER a repens&eacute; la conception des produits pour hommes afin d&rsquo;imaginer des produits les plus naturels possible, en choisissant soigneusement chaque ingr&eacute;dient et chaque actif , pour un &eacute;quilibre sans compromis entre efficacit&eacute;, sensorialit&eacute; et naturalit&eacute;. Le naturel, oui, mais pas aux d&eacute;pens du style, ni du plaisir &#x1F609;.
+          br
+          br
+          |               Dans cette d&eacute;marche, Monsieur BARBIER est une des seules marques pour hommes adh&eacute;rente &agrave; COSMEBIO et soumise aux audits d&rsquo;ECOCERT, pour ses produits labelis&eacute;s Cosmos Nat. Et tous nos produits sont exempts d&rsquo;ingr&eacute;dients controvers&eacute;s, ou d&rsquo;ingr&eacute;dients d&rsquo;origine animale. M&ecirc;me pas mal !
+          br
+          br
+          |               Saviez-vous que notre huile Full Care fut la premi&egrave;re huile pour barbe au monde &agrave; recevoir le label Cosmos Nat ? En plus d&rsquo;&ecirc;tre la premi&egrave;re huile s&egrave;che dans sa cat&eacute;gorie, mais &ccedil;a on vous laissera en d&eacute;couvrir les bienfaits par vous-m&ecirc;mes.
+      .qsn-image
+        img(src='/images/newSite/teamPage/illus-qsn-003_2.png' alt='')
+    // End dress section
+    // Life section
+    .life-section
+      .life-main
+        .life-content
+          .life-title
+            h2 Facilitez-vous la vie
+          .life-description
+            | Chez Monsieur BARBIER, on a mis nos m&eacute;ninges et nos petits bras &agrave; ex&eacute;cution pour vous simplifier la vie.
+        .life-box-group
+          .box-group-one
+            .box-item.box-active
+              | Des formats 2-en-1, comme avec notre gamme Full Care Barbe &amp; Cheveux.
+            .box-item
+              | Des produits concentr&eacute;s pour qu&rsquo;ils durent plus longtemps &agrave; vos c&ocirc;t&eacute;s.
+            .box-item
+              | Et on a beaucoup de choses en pr&eacute;paration, mais on pourra s&rsquo;en parler au fil de l&rsquo;eau !
+          .box-group-two
+            .box-item
+              | Des formules de rasoirs par abonnement pour ne plus avoir &agrave; y penser, avec des lames toutes fra&icirc;ches, directement en bo&icirc;te aux lettres, &agrave; votre cadence, et r&eacute;siliable &agrave; tout moment !
+            .box-item
+              | Un SAV toujours au pied lev&eacute;, qui est aussi l&agrave; pour vous conseiller sur les cheveux qui grattent, la peau qui tire ou toute autre contrari&eacute;t&eacute;.
+    // End life section
+    // Mobile life section
+    .mobile-life-section
+      h2.mobile-life-title Facilitez-vous la vie
+      p.mobile-life-description
+        | Chez Monsieur BARBIER, on a mis nos m&eacute;ninges et nos petits bras &agrave; ex&eacute;cution pour vous simplifier la vie.
+      .mobile-life-box
+        .mobile-life-item
+          | Des formats 2-en-1, comme avec notre gamme Full Care Barbe &amp; Cheveux.
+        .mobile-life-item
+          | Des produits concentr&eacute;s pour qu&rsquo;ils durent plus longtemps &agrave; vos c&ocirc;t&eacute;s.
+        .mobile-life-item
+          | Et on a beaucoup de choses en pr&eacute;paration, mais on pourra s&rsquo;en parler au fil de l&rsquo;eau !
+        .mobile-life-item
+          | Des formules de rasoirs par abonnement pour ne plus avoir &agrave; y penser, avec des lames toutes fra&icirc;ches, directement en bo&icirc;te aux lettres, &agrave; votre cadence, et r&eacute;siliable &agrave; tout moment !
+        .mobile-life-item
+          | Un SAV toujours au pied lev&eacute;, qui est aussi l&agrave; pour vous conseiller sur les cheveux qui grattent, la peau qui tire ou toute autre contrari&eacute;t&eacute;.
+    // End mobile life section
+    // Rest section
+    .rest-section
+      h2.qsn-title &Eacute;crivons la suite ensemble !
+      .rest-content
+        .qsn-content
+          p.qsn-name
+            | Tous barbiers
+          p.qsn-bold-content
+            | Port&eacute;s par vos retours super positifs, nous prenons en compte tous vos avis et reformulons r&eacute;guli&egrave;rement nos produits pour &ecirc;tre toujours au plus pr&egrave;s de vos envies. Et bien entendu, la plupart de nos nouveaut&eacute;s, ce sont des clients et amis qui nous les ont sugg&eacute;r&eacute;es. Apr&egrave;s, Monsieur BARBIER y glisse un peu de sa magie, et le tour est jou&eacute; !
+          p.qsn-regular-content
+            | D&rsquo;ailleurs, oust les moutons, on va bient&ocirc;t pouvoir s&rsquo;endormir en comptant les versions de notre cr&egrave;me de rasage BETTER-SHAVE ! On en est d&eacute;j&agrave; &agrave; la cinqui&egrave;me version, exquise et onctueuse, mais on va aller jusqu&rsquo;&agrave; la V6 pour obtenir le label Cosmos Nat et int&eacute;grer vos derni&egrave;res suggestions.
+            | Better shave than sorry !
+        .qsn-content
+          p.qsn-name
+            | La transparence, c&rsquo;est tendance !
+          p.qsn-bold-content
+            | Et en plus &ccedil;a nous pla&icirc;t, parce que vous &ecirc;tes nos meilleurs partenaires, c&rsquo;est pourquoi on la joue carte sur table rase (sic) : d&eacute;couvrez bient&ocirc;t notre glossaire complet de tous nos ingr&eacute;dients, et de nombreux articles sur nos actifs naturels &eacute;patants, d&eacute;crypt&eacute;s au poil de barbe pr&egrave;s.
+          p.qsn-regular-content
+            | Quant aux techniques ancestrales permettant de ma&icirc;triser le grooming parfait, tel un shaolin du blaireau ? Eh bien nous vous les r&eacute;v&eacute;lons toutes, elles aussi, en commen&ccedil;ant avec notre premier tuto sur l&rsquo;art du rasage en 10 points clefs.
+            | Et ce n&rsquo;est qu&rsquo;un d&eacute;but !
+    .rest-image
+      img(src='/images/newSite/teamPage/desktop-fond-qsn-2.png' alt='')
+    // End rest section
+    // Mobile rest section
+    .mobile-rest-section
+      .mobile-rest-image
+        img(src='/images/newSite/teamPage/rest-img-1.png' alt='')
+      .qsn-content
+        h2.qsn-title &Eacute;crivons la suite ensemble !
+        p.qsn-name
+          | Tous barbiers
+        p.qsn-bold-content
+          | Port&eacute;s par vos retours super positifs, nous prenons en compte tous vos avis et reformulons r&eacute;guli&egrave;rement nos produits pour &ecirc;tre toujours au plus pr&egrave;s de vos envies. Et bien entendu, la plupart de nos nouveaut&eacute;s, ce sont des clients et amis qui nous les ont sugg&eacute;r&eacute;es. Apr&egrave;s, Monsieur BARBIER y glisse un peu de sa magie, et le tour est jou&eacute; !
+        p.qsn-regular-content
+          | D&rsquo;ailleurs, oust les moutons, on va bient&ocirc;t pouvoir s&rsquo;endormir en comptant les versions de notre cr&egrave;me de rasage BETTER-SHAVE ! On en est d&eacute;j&agrave; &agrave; la cinqui&egrave;me version, exquise et onctueuse, mais on va aller jusqu&rsquo;&agrave; la V6 pour obtenir le label Cosmos Nat et int&eacute;grer vos derni&egrave;res suggestions.
+          | Better shave than sorry !
+      .mobile-rest-image
+        img(src='/images/newSite/teamPage/rest-img-2.png' alt='')
+      .qsn-content
+        p.qsn-name
+          | La transparence, c&rsquo;est tendance !
+        p.qsn-bold-content
+          | Et en plus &ccedil;a nous pla&icirc;t, parce que vous &ecirc;tes nos meilleurs partenaires, c&rsquo;est pourquoi on la joue carte sur table rase (sic) : d&eacute;couvrez bient&ocirc;t notre glossaire complet de tous nos ingr&eacute;dients, et de nombreux articles sur nos actifs naturels &eacute;patants, d&eacute;crypt&eacute;s au poil de barbe pr&egrave;s.
+        p.qsn-regular-content
+          | Quant aux techniques ancestrales permettant de ma&icirc;triser le grooming parfait, tel un shaolin du blaireau ? Eh bien nous vous les r&eacute;v&eacute;lons toutes, elles aussi, en commen&ccedil;ant avec notre premier tuto sur l&rsquo;art du rasage en 10 points clefs.
+          | Et ce n&rsquo;est qu&rsquo;un d&eacute;but !
+      .mobile-rest-image
+        img(src='/images/newSite/teamPage/rest-img-3.png' alt='')
+    // End mobile rest section
+    // Team section
+    .team-section
+      .team-group
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/illus-stroke-palm.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe-copy-2.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy-2.png' alt='')
+      .team-group
+        .team-item.team-title
+          h2
+            | Notre
+            br
+            | &eacute;quipe
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe-copy.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe-copy-4.png' alt='')
+      .team-group
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe-copy-5.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/illus-stroke-palm_2.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/card-equipe-copy-3.png' alt='')
+        .team-item
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy-3.png' alt='')
+      .grooming-line-image
+        img(src='/images/newSite/teamPage/ui-line-001.png' alt='')
+    // End team section
+    // Mobile team section
+    .mobile-team-section
+      h2.mobile-team-title
+        | Notre
+        br
+        | &eacute;quipe
+      .mobile-team-item
+        .team-left-icon
+          img(src='/images/newSite/teamPage/illus-stroke-palm.png' alt='')
+        img(src='/images/newSite/teamPage/card-equipe.png' alt='')
+      .mobile-team-item
+        .team-right-icon
+          img(src='/images/newSite/teamPage/illus-stroke-palm_2.png' alt='')
+        img(src='/images/newSite/teamPage/card-equipe-copy-5.png' alt='')
+      .mobile-team-item
+        .team-left-icon
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy.png' alt='')
+        img(src='/images/newSite/teamPage/card-equipe-copy.png' alt='')
+      .mobile-team-item
+        .team-right-icon
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy-2.png' alt='')
+        img(src='/images/newSite/teamPage/card-equipe-copy-2.png' alt='')
+      .mobile-team-item
+        .team-left-icon
+          img(src='/images/newSite/teamPage/illus-stroke-palm-copy-3.png' alt='')
+        img(src='/images/newSite/teamPage/card-equipe-copy-3.png' alt='')
+      .mobile-team-item
+        img(src='/images/newSite/teamPage/card-equipe-copy-4.png' alt='')
+      .mobile-line-image
+        img(src='/images/newSite/teamPage/mob-line_4.png' alt='')
+    // End mobile team section
+    // Partner section
+    .partner-section
+      .partner-title
+        h2.qsn-title Nos partenaires
+        p.partner-description
+          | Tous ensemble, nous vivons &agrave; fond l&rsquo;aventure Monsieur BARBIER, plus d&eacute;termin&eacute;s que jamais &agrave; devenir la marque n&deg;1 du male grooming dans le monde ! Oui, on est comme &ccedil;a nous, on aime les d&eacute;fis. Et &agrave; nos c&ocirc;t&eacute;s, nous pouvons faire confiance aux meilleurs des partenaires qui nous suivent depuis de d&eacute;but.
+      .partner-content
+        .partner-group
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-savoir.png' alt='')
+            .partner-item-content
+              | Savoirs des Peuples, l&rsquo;expert du bio et de la sensorialit&eacute;, avec qui nous d&eacute;veloppons nos formules uniques, saines et ultra-clean. Ce laboratoire al&eacute;so-parisien et sa team de choc imagine avec nous ces produits efficaces, sensoriels et innovants, tout en gardant la main verte !
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-cosmetoteque.png' alt='')
+            .partner-item-content
+              | La Cosm&eacute;toth&egrave;que, une institution, un projet fou et beau &agrave; la fois, qui assure la lourde t&acirc;che d&rsquo;&eacute;tablir l&rsquo;encyclop&eacute;die de la cosm&eacute;tique, et de consigner le pass&eacute; afin de mieux concevoir l&rsquo;avenir, avec &agrave; sa t&ecirc;te le brillantissime Jean-Claude Le Joliff. &Agrave; consommer sans mod&eacute;ration !
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-cosmetoteque_2.png' alt='')
+            .partner-item-content
+              | Notre atelier situ&eacute; &agrave; N&icirc;mes nous a permis de b&eacute;n&eacute;ficier du soutien de la r&eacute;gion Occitanie dans le d&eacute;veloppement d&rsquo;une cosm&eacute;tique naturelle pour homme.
+        .partner-group
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-cosmetique.png' alt='')
+            .partner-item-content
+              | Cosm&eacute;bio, la r&eacute;f&eacute;rence de la cosm&eacute;tique bio et naturelle, qui nous aide &agrave; b&acirc;tir un monde plus respectueux de la plan&egrave;te. Et plus particuli&egrave;rement Ecocert qui assure &agrave; nos clients la qualit&eacute; d&rsquo;une info impeccable et d&rsquo;une &eacute;co-conception du champ &agrave; la maison !
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-bpifrance.png' alt='')
+            .partner-item-content
+              | Merci &agrave; BPI France, antenne de Montpellier / Occitanie, d&apos;accompagner notre start-up dans tous les moments clefs, allant des &eacute;tudes de faisabilit&eacute; vers des formulations toujours plus &quot;clean&quot; et naturelles, au soutien de notre croissance vers de nouveaux march&eacute;s.
+          .partner-item
+            .partner-logo
+              img(src='/images/newSite/teamPage/qsn-partenaires-bpifrance_2.png' alt='')
+            .partner-item-content
+              | Gr&acirc;ce aux audits et conseils prodigu&eacute;s par Ecocert, nous faisons certifier nos produits selon le r&eacute;f&eacute;rentiel COSMOS NATURAL, une premi&egrave;re dans la beaut&eacute; masculine !
+      .grooming-line-image
+        img(src='/images/newSite/teamPage/ui-line-001.png' alt='')
+      .mobile-line-image
+        img(src='/images/newSite/teamPage/mob-line_4.png' alt='')
+    // End partner section
+    // Contact section
+    .contact-section
+      .contact-title
+        h2
+          | Nous contacter :
+        h2
+          | journalistes, distributeurs&mldr;
+      .contact-content
+        .contact-email
+          p
+            | Pour nous contacter au sujet d&rsquo;un papier, d&rsquo;un 
+            br
+            | partenariat ou d&rsquo;un projet, une seule adresse
+          a(href='#')
+            button.contact-btn(type='button')
+              | contact@monsieurbarbier.com
+        .contact-address
+          p
+            | Vous pouvez aussi nous &eacute;crire avec une feuille, un stylo et
+            br
+            | une enveloppe, parce que c&rsquo;est tr&egrave;s chic, &agrave; l&rsquo;adresse
+          h3
+            | Monsieur BARBIER, 10 rue
+          h3
+            | du Colis&eacute;e, 75008 Paris
+    // End contact section
+  .contact-image
+    img(src='/images/newSite/teamPage/desktop-illus-qsn-004.png' alt='')
+  .mobile-contact-image
+    img(src='/images/newSite/teamPage/mobile-contact-img.png' alt='')        
