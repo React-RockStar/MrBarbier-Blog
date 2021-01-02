@@ -3,6 +3,7 @@
 
 
 This is blog page for Mr Barbier.
+I used HTML5/CSS3/Pug.
 
 
 
